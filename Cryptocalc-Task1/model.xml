@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+	<featureModel>
+		<properties/>
+		<struct>
+			<and abstract="true" mandatory="true" name="CryptocalcTask1">
+				<feature name="Fast Exponentiation"/>
+				<feature name="Euclidean Algorithm"/>
+				<and name="Extended Euclidean Algorithm">
+					<alt abstract="true" mandatory="true" name="Result">
+						<feature mandatory="true" name="Show result only"/>
+						<feature mandatory="true" name="Show extended solution"/>
+					</alt>
+					<or abstract="true" mandatory="true" name="Implementation">
+						<feature mandatory="true" name="Iterative"/>
+						<feature mandatory="true" name="Recursive"/>
+					</or>
+				</and>
+				<feature name="Eulers phi function"/>
+				<feature name="Charmichaels function"/>
+				<feature name="Random Number Generator"/>
+				<feature name="Calculate in extension field"/>
+				<and name="Check if group is cyclic">
+					<feature name="Find primitive roots"/>
+				</and>
+				<or abstract="true" name="RSA">
+					<feature mandatory="true" name="RSA Key Generation"/>
+					<feature mandatory="true" name="RSA Encryption"/>
+				</or>
+				<or abstract="true" name="ElGamal">
+					<feature mandatory="true" name="ElGamal Key Generation"/>
+					<feature mandatory="true" name="ElGamal Encryption"/>
+					<feature mandatory="true" name="ElGamal Signature"/>
+				</or>
+			</and>
+		</struct>
+		<constraints>
+			<rule>
+				<imp>
+					<var>RSA Encryption</var>
+					<var>Extended Euclidean Algorithm</var>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>RSA Key Generation</var>
+					<conj>
+						<var>Eulers phi function</var>
+						<conj>
+							<var>Extended Euclidean Algorithm</var>
+							<var>Random Number Generator</var>
+						</conj>
+					</conj>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>Calculate in extension field</var>
+					<disj>
+						<var>Fast Exponentiation</var>
+						<var>Extended Euclidean Algorithm</var>
+					</disj>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>ElGamal</var>
+					<conj>
+						<var>Check if group is cyclic</var>
+						<conj>
+							<var>Fast Exponentiation</var>
+							<var>Find primitive roots</var>
+						</conj>
+					</conj>
+				</imp>
+			</rule>
+		</constraints>
+		<calculations Auto="true" Constraints="true" Features="true" Redundant="true" Tautology="true"/>
+		<comments/>
+		<featureOrder userDefined="false"/>
+	</featureModel>
