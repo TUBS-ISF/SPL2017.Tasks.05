@@ -5,31 +5,31 @@
 			<and abstract="true" mandatory="true" name="CryptocalcTask2">
 				<feature name="FastExponentiation"/>
 				<feature name="EuclideanAlgorithm"/>
-				<and name="ExtendedEuclideanAlgorithm">
+				<and abstract="true" name="ExtendedEuclideanAlgorithm">
 					<alt abstract="true" mandatory="true" name="Result">
-						<feature mandatory="true" name="Show result only"/>
-						<feature mandatory="true" name="ShowExtendedSolution"/>
+						<feature abstract="true" mandatory="true" name="Show result only"/>
+						<feature abstract="true" mandatory="true" name="ShowExtendedSolution"/>
 					</alt>
 					<or abstract="true" mandatory="true" name="Implementation">
-						<feature mandatory="true" name="Iterative"/>
-						<feature mandatory="true" name="Recursive"/>
+						<feature abstract="true" mandatory="true" name="Iterative"/>
+						<feature abstract="true" mandatory="true" name="Recursive"/>
 					</or>
 				</and>
-				<feature name="EulersPhiFunction"/>
-				<feature name="CharmichaelsFunction"/>
-				<feature name="RandomNumberGenerator"/>
-				<feature name="CalculateInExtensionField"/>
-				<and name="CheckIfGroupIsCyclic">
-					<feature name="FindPrimitiveRoots"/>
+				<feature abstract="true" name="EulersPhiFunction"/>
+				<feature abstract="true" name="CharmichaelsFunction"/>
+				<feature abstract="true" name="RandomNumberGenerator"/>
+				<feature abstract="true" name="CalculateInExtensionField"/>
+				<and abstract="true" name="CheckIfGroupIsCyclic">
+					<feature abstract="true" name="FindPrimitiveRoots"/>
 				</and>
 				<or abstract="true" name="RSA">
-					<feature mandatory="true" name="RSAKeyGeneration"/>
-					<feature mandatory="true" name="RSAEncryption"/>
+					<feature abstract="true" mandatory="true" name="RSAKeyGeneration"/>
+					<feature abstract="true" mandatory="true" name="RSAEncryption"/>
 				</or>
 				<or abstract="true" name="ElGamal">
-					<feature mandatory="true" name="ElGamalKeyGeneration"/>
-					<feature mandatory="true" name="ElGamalEncryption"/>
-					<feature mandatory="true" name="ElGamalSignature"/>
+					<feature abstract="true" mandatory="true" name="ElGamalKeyGeneration"/>
+					<feature abstract="true" mandatory="true" name="ElGamalEncryption"/>
+					<feature abstract="true" mandatory="true" name="ElGamalSignature"/>
 				</or>
 			</and>
 		</struct>
