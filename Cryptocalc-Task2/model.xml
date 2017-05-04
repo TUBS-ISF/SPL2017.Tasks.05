@@ -2,62 +2,62 @@
 	<featureModel>
 		<properties/>
 		<struct>
-			<and abstract="true" mandatory="true" name="CryptocalcTask1">
-				<feature name="Fast Exponentiation"/>
-				<feature name="Euclidean Algorithm"/>
-				<and name="Extended Euclidean Algorithm">
+			<and abstract="true" mandatory="true" name="CryptocalcTask2">
+				<feature name="FastExponentiation"/>
+				<feature name="EuclideanAlgorithm"/>
+				<and name="ExtendedEuclideanAlgorithm">
 					<alt abstract="true" mandatory="true" name="Result">
 						<feature mandatory="true" name="Show result only"/>
-						<feature mandatory="true" name="Show extended solution"/>
+						<feature mandatory="true" name="ShowExtendedSolution"/>
 					</alt>
 					<or abstract="true" mandatory="true" name="Implementation">
 						<feature mandatory="true" name="Iterative"/>
 						<feature mandatory="true" name="Recursive"/>
 					</or>
 				</and>
-				<feature name="Eulers phi function"/>
-				<feature name="Charmichaels function"/>
-				<feature name="Random Number Generator"/>
-				<feature name="Calculate in extension field"/>
-				<and name="Check if group is cyclic">
-					<feature name="Find primitive roots"/>
-				</and>
+				<feature name="EulersPhiFunction"/>
+				<feature name="CharmichaelsFunction"/>
+				<feature name="RandomNumberGenerator"/>
+				<feature name="CalculateInExtensionField"/>
+				<or name="CheckIfGroupIsCyclic">
+					<feature mandatory="true" name="FindPrimitiveRoots"/>
+				</or>
 				<or abstract="true" name="RSA">
-					<feature mandatory="true" name="RSA Key Generation"/>
-					<feature mandatory="true" name="RSA Encryption"/>
+					<feature mandatory="true" name="RSAKeyGeneration"/>
+					<feature mandatory="true" name="RSAEncryption"/>
 				</or>
 				<or abstract="true" name="ElGamal">
-					<feature mandatory="true" name="ElGamal Key Generation"/>
-					<feature mandatory="true" name="ElGamal Encryption"/>
-					<feature mandatory="true" name="ElGamal Signature"/>
+					<feature mandatory="true" name="ElGamalKeyGeneration"/>
+					<feature mandatory="true" name="ElGamalEncryption"/>
+					<feature mandatory="true" name="ElGamalSignature"/>
 				</or>
 			</and>
 		</struct>
 		<constraints>
 			<rule>
 				<imp>
-					<var>RSA Encryption</var>
-					<var>Extended Euclidean Algorithm</var>
+					<var>RSAEncryption</var>
+					<var>ExtendedEuclideanAlgorithm</var>
 				</imp>
 			</rule>
 			<rule>
 				<imp>
-					<var>RSA Key Generation</var>
+					<var>RSAKeyGeneration</var>
 					<conj>
-						<var>Eulers phi function</var>
+						<var>EulersPhiFunction</var>
 						<conj>
-							<var>Extended Euclidean Algorithm</var>
-							<var>Random Number Generator</var>
+							<var>ExtendedEuclideanAlgorithm</var>
+							<var>RandomNumberGenerator</var>
 						</conj>
 					</conj>
 				</imp>
 			</rule>
 			<rule>
 				<imp>
-					<var>Calculate in extension field</var>
+					<var>CalculateInExtensionField</var>
 					<disj>
-						<var>Fast Exponentiation</var>
-						<var>Extended Euclidean Algorithm</var>
+						<var>FastExponentiation</var>
+						<var>ExtendedEuclideanAlgorithm</var>
 					</disj>
 				</imp>
 			</rule>
@@ -65,10 +65,10 @@
 				<imp>
 					<var>ElGamal</var>
 					<conj>
-						<var>Check if group is cyclic</var>
+						<var>CheckIfGroupIsCyclic</var>
 						<conj>
-							<var>Fast Exponentiation</var>
-							<var>Find primitive roots</var>
+							<var>FastExponentiation</var>
+							<var>FindPrimitiveRoots</var>
 						</conj>
 					</conj>
 				</imp>
