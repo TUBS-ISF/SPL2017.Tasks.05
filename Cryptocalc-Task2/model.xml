@@ -19,9 +19,9 @@
 				<feature name="CharmichaelsFunction"/>
 				<feature name="RandomNumberGenerator"/>
 				<feature name="CalculateInExtensionField"/>
-				<or name="CheckIfGroupIsCyclic">
-					<feature mandatory="true" name="FindPrimitiveRoots"/>
-				</or>
+				<and name="CheckIfGroupIsCyclic">
+					<feature name="FindPrimitiveRoots"/>
+				</and>
 				<or abstract="true" name="RSA">
 					<feature mandatory="true" name="RSAKeyGeneration"/>
 					<feature mandatory="true" name="RSAEncryption"/>
