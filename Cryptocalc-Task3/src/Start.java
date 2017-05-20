@@ -1,6 +1,8 @@
 import java.util.Scanner;
 
 public class Start {
+	
+	private static Scanner scanner = new Scanner(System.in);
 
 	public static void main(String[] args) {
 
@@ -19,7 +21,7 @@ public class Start {
 		// #endif
 		System.out.println("\tq\tquit");
 
-		String calculation = new Scanner(System.in).next();
+		String calculation = scanner.next();
 		switch (calculation) {
 		// #if FastExponentiation
 		case "a":
@@ -39,7 +41,8 @@ public class Start {
 	private static void returnToMenu() {
 
 		System.out.println("\n\npress enter to return to menu");
-		String input = new Scanner(System.in).nextLine();
+		scanner.nextLine();
+		scanner.nextLine();
 		System.out.print("\n\n\n");
 		printFeatures();
 	}
@@ -47,14 +50,12 @@ public class Start {
 	// #if FastExponentiation
 	private static void manageFastExponentiation() {
 
-		Scanner scanner = new Scanner(System.in);
 		System.out.print("enter base: ");
 		Integer base = scanner.nextInt();
 		System.out.print("enter exponent: ");
 		Integer exponent = scanner.nextInt();
 		System.out.print("enter modulus: ");
 		Integer modulus = scanner.nextInt();
-		//scanner.close();
 		
 		Integer result = fastExponentiation(base, exponent, modulus);
 		System.out.println("\n\t" + base + "^" + exponent + " mod " + modulus + " = " + result);
@@ -79,8 +80,6 @@ public class Start {
 
 	// #if EuclideanAlgorithm
 	private static void manageEuclideanAlgorithm() {
-
-		Scanner scanner = new Scanner(System.in);
 
 		System.out.print("enter first integer: ");
 		Integer firstInteger = scanner.nextInt();
