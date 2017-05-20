@@ -5,14 +5,14 @@
 			<and abstract="true" mandatory="true" name="CryptocalcTask2">
 				<feature name="FastExponentiation"/>
 				<feature name="EuclideanAlgorithm"/>
-				<and abstract="true" name="ExtendedEuclideanAlgorithm">
+				<and name="ExtendedEuclideanAlgorithm">
 					<alt abstract="true" mandatory="true" name="Result">
-						<feature abstract="true" mandatory="true" name="Show result only"/>
-						<feature abstract="true" mandatory="true" name="ShowExtendedSolution"/>
+						<feature mandatory="true" name="ShowResultOnly"/>
+						<feature mandatory="true" name="ShowExtendedSolution"/>
 					</alt>
 					<or abstract="true" mandatory="true" name="Implementation">
 						<feature abstract="true" mandatory="true" name="Iterative"/>
-						<feature abstract="true" mandatory="true" name="Recursive"/>
+						<feature mandatory="true" name="Recursive"/>
 					</or>
 				</and>
 				<feature abstract="true" name="EulersPhiFunction"/>

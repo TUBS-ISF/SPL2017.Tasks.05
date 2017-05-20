@@ -17,9 +17,12 @@ public class Start {
 		System.out.println("\ta\tfast exponentiation");
 		// #endif
 		// #if EuclideanAlgorithm
-				System.out.println("\tb\teuclidean algorithm");
+		System.out.println("\tb\teuclidean algorithm");
 		// #endif
-		System.out.println("\tq\tquit");
+		// #if ExtendedEuclideanAlgorithm
+		System.out.println("\tc\textended euclidean algorithm");
+		// #endif
+		System.out.println("\n\tq\tquit");
 
 		String calculation = scanner.next();
 		switch (calculation) {
@@ -32,6 +35,10 @@ public class Start {
 		case "b":
 			manageEuclideanAlgorithm();
 			break;
+		// #endif
+		// #if ExtendedEuclideanAlgorithm
+		case "c":
+			manageExtendedEuclideanAlgorithm();
 		// #endif
 		case "q":
 			System.exit(0);
@@ -103,5 +110,55 @@ public class Start {
 		return a;
 	}
 	// #endif
+	
+	// #if ExtendedEuclideanAlgorithm
+	private static void manageExtendedEuclideanAlgorithm() {
+	
+		System.out.print("enter first integer: ");
+		Integer firstInteger = scanner.nextInt();
+		System.out.print("enter second integer: ");
+		Integer secondInteger = scanner.nextInt();
+		System.out.println();
+
+		TripleOfIntegers result = extendedEuclideanAlgorithmRecursive(firstInteger, secondInteger);
+		// #if ShowResultOnly
+//@		System.out.println("\tgcd(" + firstInteger + ", " + secondInteger + ") = "
+//@		+ result.s + " * " + firstInteger + " + " + result.t + " * " + secondInteger
+//@		+ " = " + result.d);
+		// #endif
+
+		returnToMenu();
+	}
+	
+	private static TripleOfIntegers extendedEuclideanAlgorithmRecursive(Integer a, Integer b) {
+		if (b==0) {
+			return new TripleOfIntegers(a, 1, 0);
+		}
+		// #if ShowExtendedSolution
+		System.out.println("\t" + a + " mod " + b + " = " + a % b);
+		// #endif
+		TripleOfIntegers triple = extendedEuclideanAlgorithmRecursive(b, a % b);
+		int t = triple.s - a / b * triple.t;
+		triple.s = triple.t;
+		triple.t = t;
+		// #if ShowExtendedSolution
+		System.out.println("\t" + triple.d + " = " + triple.s + " * " + a + " + " + triple.t + " * " + b);
+		// #endif
+		return triple;
+	}
+	// #endif
 
 }
+
+// #if ExtendedEuclideanAlgorithm
+class TripleOfIntegers {
+	
+	public int d, s, t;
+	
+	public TripleOfIntegers(int d, int s, int t) {
+		this.d = d;
+		this.s = s;
+		this.t = t;
+	}
+}
+// #endif
