@@ -1,0 +1,7 @@
+true
+EuclideanAlgorithm=Blue
+FastExponentiation=Cyan
+ShowResultOnly=Red
+ShowExtendedSolution=Orange
+ExtendedEuclideanAlgorithm=Dark_Green
+Recursive=Yellow
