@@ -1,0 +1,43 @@
+/**
+ * TODO description
+ */
+public refines class Main {
+
+	public void printFeatures() {
+		
+		Super().printFeatures();
+		System.out.println("\t" + "2" + "\teuclidiean algorithm");
+	}
+	
+	public void startCalculation(int feature) {
+		
+		Super(int).startCalculation(feature);
+		if (feature == 2) {
+			manageEuclideanAlgorithm();
+		}		
+	}
+	
+	private static void manageEuclideanAlgorithm() {
+
+		System.out.print("enter first integer: ");
+		Integer firstInteger = scanner.nextInt();
+		System.out.print("enter second integer: ");
+		Integer secondInteger = scanner.nextInt();
+
+		Integer gcd = euclideanAlgorithm(firstInteger, secondInteger);
+		System.out.println("\n\tgcd(" + firstInteger + ", " + secondInteger + ") = " + gcd);
+
+		returnToMenu();
+	}
+
+	private static Integer euclideanAlgorithm(Integer a, Integer b) {
+
+		Integer h;
+		while (b != 0) {
+			h = a % b;
+			a = b;
+			b = h;
+		}
+		return a;
+	}
+}

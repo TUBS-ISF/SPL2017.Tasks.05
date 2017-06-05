@@ -3,24 +3,18 @@
  */
 public refines class Main {
 	
-	private int id = 1;
 	public void printFeatures() {
 		
 		Super().printFeatures();
-		System.out.println("\t" + id + "\tfast exponentiation");
+		System.out.println("\t" + "1" + "\tfast exponentiation");
 	}
 	
 	public void startCalculation(int feature) {
 		
-		System.out.println(feature);
 		Super(int).startCalculation(feature);
-		
-		if (feature == id) {
+		if (feature == 1) {
 			manageFastExponentiation();
-			System.out.println("test");
 		}
-		returnToMenu();
-		
 	}
 	
 	private static void manageFastExponentiation() {
@@ -34,6 +28,8 @@ public refines class Main {
 		
 		Integer result = fastExponentiation(base, exponent, modulus);
 		System.out.println("\n\t" + base + "^" + exponent + " mod " + modulus + " = " + result);
+		
+		returnToMenu();
 	}
 
 	private static Integer fastExponentiation(Integer base, Integer exponent, Integer modulus) {
