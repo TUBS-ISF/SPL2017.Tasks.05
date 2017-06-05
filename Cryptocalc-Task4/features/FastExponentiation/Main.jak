@@ -1,0 +1,52 @@
+/**
+ * TODO description
+ */
+public refines class Main {
+	
+	private int id = 1;
+	public void printFeatures() {
+		
+		Super().printFeatures();
+		System.out.println("\t" + id + "\tfast exponentiation");
+	}
+	
+	public void startCalculation(int feature) {
+		
+		System.out.println(feature);
+		Super(int).startCalculation(feature);
+		
+		if (feature == id) {
+			manageFastExponentiation();
+			System.out.println("test");
+		}
+		returnToMenu();
+		
+	}
+	
+	private static void manageFastExponentiation() {
+
+		System.out.print("enter base: ");
+		Integer base = scanner.nextInt();
+		System.out.print("enter exponent: ");
+		Integer exponent = scanner.nextInt();
+		System.out.print("enter modulus: ");
+		Integer modulus = scanner.nextInt();
+		
+		Integer result = fastExponentiation(base, exponent, modulus);
+		System.out.println("\n\t" + base + "^" + exponent + " mod " + modulus + " = " + result);
+	}
+
+	private static Integer fastExponentiation(Integer base, Integer exponent, Integer modulus) {
+
+		Integer result = 1;
+		while(exponent != 0) {
+			while(exponent % 2 == 0) {
+				exponent = exponent/2;
+				base = base*base % modulus;
+			}
+			exponent = exponent-1;
+			result = result*base % modulus;
+		}
+		return result;
+	}
+}

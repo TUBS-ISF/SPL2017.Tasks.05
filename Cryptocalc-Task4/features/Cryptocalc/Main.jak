@@ -5,32 +5,43 @@ import java.util.Scanner;
  * TODO description
  */
 public class Main {
-	private static Scanner scanner = new Scanner(System.in);
-
+	
+	public static Scanner scanner = new Scanner(System.in);
+	
 	public static void main(String[] args) {
+		
+		new Main().askForFeature();
+	}
+	
+	public void printFeatures() {
+		
+		System.out.println("Enter one of the following numbers to start a calculation:");
+	}
+	
+	public void askForFeature() {
 
 		printFeatures();
-	}
-
-	private static void printFeatures() {
-
-		System.out.println("Enter one of the following numbers to start a calculation:");
 		
 		System.out.println("\n\t0\tquit");
 
-		int calculation = scanner.nextInt();
-		switch (calculation) {
-		case 0:
-			System.exit(0);
-		}
+		int feature = scanner.nextInt();
+		startCalculation(feature);
 	}
 	
-	private static void returnToMenu() {
+	public void startCalculation(int feature) {
+		
+		if (feature == 0) {
+			System.exit(1);
+		}
+		System.out.println("Starting calculation...");
+	}
+	
+	public static void returnToMenu() {
 
 		System.out.println("\n\npress enter to return to menu");
 		scanner.nextLine();
 		scanner.nextLine();
 		System.out.print("\n\n\n");
-		printFeatures();
+		new Main().askForFeature();
 	}
 }
