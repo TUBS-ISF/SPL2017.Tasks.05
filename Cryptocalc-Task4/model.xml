@@ -2,11 +2,78 @@
 	<featureModel>
 		<properties/>
 		<struct>
-			<and abstract="true" mandatory="true" name="CryptocalcTask4">
-				<feature name="Base"/>
+			<and abstract="true" mandatory="true" name="CryptocalcTask2">
+				<feature name="FastExponentiation"/>
+				<feature name="EuclideanAlgorithm"/>
+				<and name="ExtendedEuclideanAlgorithm">
+					<alt abstract="true" mandatory="true" name="Result">
+						<feature mandatory="true" name="ShowResultOnly"/>
+						<feature mandatory="true" name="ShowExtendedSolution"/>
+					</alt>
+					<or abstract="true" mandatory="true" name="Implementation">
+						<feature abstract="true" mandatory="true" name="Iterative"/>
+						<feature mandatory="true" name="Recursive"/>
+					</or>
+				</and>
+				<feature abstract="true" name="EulersPhiFunction"/>
+				<feature abstract="true" name="CharmichaelsFunction"/>
+				<feature abstract="true" name="RandomNumberGenerator"/>
+				<feature abstract="true" name="CalculateInExtensionField"/>
+				<and abstract="true" name="CheckIfGroupIsCyclic">
+					<feature abstract="true" name="FindPrimitiveRoots"/>
+				</and>
+				<or abstract="true" name="RSA">
+					<feature abstract="true" mandatory="true" name="RSAKeyGeneration"/>
+					<feature abstract="true" mandatory="true" name="RSAEncryption"/>
+				</or>
+				<or abstract="true" name="ElGamal">
+					<feature abstract="true" mandatory="true" name="ElGamalKeyGeneration"/>
+					<feature abstract="true" mandatory="true" name="ElGamalEncryption"/>
+					<feature abstract="true" mandatory="true" name="ElGamalSignature"/>
+				</or>
 			</and>
 		</struct>
-		<constraints/>
+		<constraints>
+			<rule>
+				<imp>
+					<var>RSAEncryption</var>
+					<var>ExtendedEuclideanAlgorithm</var>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>RSAKeyGeneration</var>
+					<conj>
+						<var>EulersPhiFunction</var>
+						<conj>
+							<var>ExtendedEuclideanAlgorithm</var>
+							<var>RandomNumberGenerator</var>
+						</conj>
+					</conj>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>CalculateInExtensionField</var>
+					<disj>
+						<var>FastExponentiation</var>
+						<var>ExtendedEuclideanAlgorithm</var>
+					</disj>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>ElGamal</var>
+					<conj>
+						<var>CheckIfGroupIsCyclic</var>
+						<conj>
+							<var>FastExponentiation</var>
+							<var>FindPrimitiveRoots</var>
+						</conj>
+					</conj>
+				</imp>
+			</rule>
+		</constraints>
 		<calculations Auto="true" Constraints="true" Features="true" Redundant="true" Tautology="true"/>
 		<comments/>
 		<featureOrder userDefined="false"/>
