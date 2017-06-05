@@ -22,6 +22,16 @@ public class Start {
 		// #if ExtendedEuclideanAlgorithm
 		System.out.println("\tc\textended euclidean algorithm");
 		// #endif
+		System.out.println("\td\tadd modulo m");
+		
+		System.out.println("\te\tmultiply modulo m");
+		
+		System.out.println("\tf\tidea xor");
+		
+		System.out.println("\tg\tidea addition");
+		
+		System.out.println("\th\tidea modified multiplication");
+		
 		System.out.println("\n\tq\tquit");
 
 		String calculation = scanner.next();
@@ -40,6 +50,16 @@ public class Start {
 		case "c":
 			manageExtendedEuclideanAlgorithm();
 		// #endif
+		case "d":
+		  manageAdditionModulo();
+		case "e":
+		  manageMultiplicationModulo();
+		case "f":
+		  manageIdeaXor();
+		case "g":
+      manageIdeaAddition();
+		case "h":
+      manageIdeaMultiplication();
 		case "q":
 			System.exit(0);
 		}
@@ -53,8 +73,104 @@ public class Start {
 		System.out.print("\n\n\n");
 		printFeatures();
 	}
+	
+	private static void manageIdeaAddition() {
+	  System.out.print("enter first integer: ");
+    Integer a = scanner.nextInt();
+    System.out.print("enter second integer: ");
+    Integer b = scanner.nextInt();
+    Integer modulus = 65536;
+    
+    Integer result = additionModulo(a, b, modulus);
+    System.out.println("\n\t" + a + " + " + b + " mod " + modulus + " = " + result);
 
-	// #if FastExponentiation
+    System.out.println("\n\t0x" + Integer.toHexString(a).toUpperCase()
+        + " + 0x" + Integer.toHexString(b).toUpperCase()
+        + " mod 0x" + Integer.toHexString(modulus).toUpperCase()
+        + " = 0x" + Integer.toHexString(result).toUpperCase());
+    
+    returnToMenu();
+	}
+	
+	 private static void manageIdeaMultiplication() {
+	    System.out.print("enter first integer: ");
+	    Integer a = scanner.nextInt();
+	    System.out.print("enter second integer: ");
+	    Integer b = scanner.nextInt();
+	    Integer modulus = 65536 + 1;
+	    
+	    if (a == 0)
+	      a = 65536;
+	    if (b == 0)
+	      b = 65536;
+	    Integer result = multiplicationModulo(a, b, modulus);
+	    if (result == 65536)
+	      result = 0;
+	    System.out.println("\n\t" + a + " x " + b + " mod " + modulus + " = " + result);
+
+	    System.out.println("\n\t0x" + Integer.toHexString(a).toUpperCase()
+	        + " x 0x" + Integer.toHexString(b).toUpperCase()
+	        + " mod 0x" + Integer.toHexString(modulus).toUpperCase()
+	        + " = 0x" + Integer.toHexString(result).toUpperCase());
+
+	    returnToMenu();
+	 }
+	 
+	  private static void manageIdeaXor() {
+	    System.out.print("enter first integer: ");
+	    Integer a = scanner.nextInt();
+	    System.out.print("enter second integer: ");
+	    Integer b = scanner.nextInt();
+	    Integer result = a ^ b;
+	    System.out.println("\n\t" + a + " xor " + b + " = " + result);
+
+	    System.out.println("\n\t0x" + Integer.toHexString(a).toUpperCase()
+	      + " xor 0x" + Integer.toHexString(b).toUpperCase()
+	      + " = 0x" + Integer.toHexString(result).toUpperCase());
+	    
+	    returnToMenu();
+	  }
+	
+	
+	private static void manageAdditionModulo() {
+	  System.out.print("enter first integer: ");
+	  Integer a = scanner.nextInt();
+	  System.out.print("enter second integer: ");
+    Integer b = scanner.nextInt();
+    System.out.print("enter modulus: ");
+    Integer modulus = scanner.nextInt();
+    
+    Integer result = additionModulo(a, b, modulus);
+    System.out.println("\n\t" + a + " + " + b + " mod " + modulus + " = " + result);
+
+    returnToMenu();
+	}
+
+	private static Integer additionModulo(Integer a, Integer b, Integer modulus) {
+
+	  return (a + b) % modulus;
+	}
+
+	private static void manageMultiplicationModulo() {
+	  System.out.print("enter first integer: ");
+	  Integer a = scanner.nextInt();
+	  System.out.print("enter second integer: ");
+	  Integer b = scanner.nextInt();
+	  System.out.print("enter modulus: ");
+	  Integer modulus = scanner.nextInt();
+
+	  Integer result = multiplicationModulo(a, b, modulus);
+	  System.out.println("\n\t" + a + " * " + b + " mod " + modulus + " = " + result);
+
+	  returnToMenu();
+	}
+
+	private static Integer multiplicationModulo(Integer a, Integer b, Integer modulus) {
+
+	  return (a * b) % modulus;
+	}
+
+  // #if FastExponentiation
 	private static void manageFastExponentiation() {
 
 		System.out.print("enter base: ");
