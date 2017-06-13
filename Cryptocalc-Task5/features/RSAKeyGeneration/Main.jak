@@ -1,0 +1,34 @@
+/**
+ * TODO description
+ */
+public refines class Main {
+
+	public void printFeatures() {
+		
+		Super().printFeatures();
+		System.out.println("\t" + "5" + "\tRSA key generation");
+	}
+	
+	public void startCalculation(int feature) {
+		
+		Super(int).startCalculation(feature);
+		if (feature == 5) {
+			manageRSAKeyGeneration();
+		}
+	}
+	
+	private static void manageRSAKeyGeneration() {
+
+		System.out.print("enter prime p: ");
+		Integer p = scanner.nextInt();
+		System.out.print("enter prime q: ");
+		Integer q = scanner.nextInt();
+		System.out.print("enter invertible number in phi(pq): ");
+		Integer e = scanner.nextInt();
+		
+		Integer d = RSA.generateKey(p, q, e);
+		System.out.println("\n\tprivate key: " + d + "\n\tpublic key: " + e + "\n\tmodulus: " + p*q);
+		
+		returnToMenu();
+	}
+}

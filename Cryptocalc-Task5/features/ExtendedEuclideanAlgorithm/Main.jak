@@ -6,7 +6,7 @@ public refines class Main {
 	public void printFeatures() {
 		
 		Super().printFeatures();
-		System.out.println("\t" + "3" + "\teuclidiean algorithm");
+		System.out.println("\t" + "3" + "\textended euclidiean algorithm");
 	}
 	
 	public void startCalculation(int feature) {
@@ -25,7 +25,7 @@ public refines class Main {
 		Integer secondInteger = scanner.nextInt();
 		System.out.println();
 
-		TripleOfIntegers result = EEA.extendedEuclideanAlgorithmRecursive(firstInteger, secondInteger);
+		TripleOfIntegers result = EEA.execute(firstInteger, secondInteger);
 		System.out.println("\tgcd(" + firstInteger + ", " + secondInteger + ") = "
 		+ result.s + " * " + firstInteger + " + " + result.t + " * " + secondInteger
 		+ " = " + result.d);

@@ -1,0 +1,19 @@
+/**
+ * TODO description
+ */
+public refines class RSA {
+
+	public static int generateKey(int p, int q, int e) {
+		int m = p*q;
+		int phi = (p-1) * (q-1);
+		if (Main.euclideanAlgorithm(e, phi) != 1) {
+			System.out.println(e + " ist nicht modulo " + phi + " invertierbar!");
+			return 0;
+		}
+		
+		TripleOfIntegers result = EEA.execute(e, phi);
+		if (result.s < 0)
+			return result.s + phi;
+		return result.s;
+	}
+}

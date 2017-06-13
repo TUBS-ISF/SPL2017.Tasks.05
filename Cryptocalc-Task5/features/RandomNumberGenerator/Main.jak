@@ -1,0 +1,21 @@
+/**
+ * TODO description
+ */
+public refines class Main {
+
+	public void printFeatures() {
+
+		Super().printFeatures();
+		System.out.println("\t" + "4" + "\tRandom number generator");
+	}
+
+	public void startCalculation(int feature) {
+
+		Super(int).startCalculation(feature);
+		if (feature == 4) {
+			int r = Random.createTwoDigitRandom();
+			System.out.println("Random " + r);
+			returnToMenu();
+		}
+	}
+}

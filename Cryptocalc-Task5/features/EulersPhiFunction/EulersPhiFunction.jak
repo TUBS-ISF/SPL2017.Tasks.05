@@ -1,0 +1,14 @@
+/**
+ * TODO description
+ */
+
+
+public class EulersPhiFunction {
+
+	public static int execute(int i) {
+		
+		return 0;
+	}
+	
+	
+}

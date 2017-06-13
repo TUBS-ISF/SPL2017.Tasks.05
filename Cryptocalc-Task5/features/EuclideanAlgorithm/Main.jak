@@ -30,7 +30,7 @@ public refines class Main {
 		returnToMenu();
 	}
 
-	private static Integer euclideanAlgorithm(Integer a, Integer b) {
+	public static Integer euclideanAlgorithm(Integer a, Integer b) {
 
 		Integer h;
 		while (b != 0) {

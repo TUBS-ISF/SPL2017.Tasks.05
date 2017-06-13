@@ -1,0 +1,17 @@
+/**
+ * TODO description
+ */
+public refines class EEA {
+	
+	public static TripleOfIntegers execute(Integer a, Integer b) {
+		
+		System.out.println("Imagine iterative implementation...");
+
+		return iterative(a, b);
+	}
+
+	public static TripleOfIntegers iterative(Integer a, Integer b) {
+		
+		return new TripleOfIntegers(999, 999, 999);
+	}
+}

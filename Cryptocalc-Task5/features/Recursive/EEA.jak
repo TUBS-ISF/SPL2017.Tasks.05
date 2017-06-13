@@ -3,14 +3,20 @@
  */
 public refines class EEA {
 
-	public static TripleOfIntegers extendedEuclideanAlgorithmRecursive(Integer a, Integer b) {
+	public static TripleOfIntegers execute(Integer a, Integer b) {
+		System.out.println("Recursive implementation");
+
+		return recursive(a, b);
+	}
+	
+	public static TripleOfIntegers recursive(Integer a, Integer b) {
 		if (b == 0) {
 			return new TripleOfIntegers(a, 1, 0);
 		}
 
 		System.out.println("\t" + a + " mod " + b + " = " + a % b);
 
-		TripleOfIntegers triple = extendedEuclideanAlgorithmRecursive(b, a % b);
+		TripleOfIntegers triple = recursive(b, a % b);
 		int t = triple.s - a / b * triple.t;
 		triple.s = triple.t;
 		triple.t = t;

@@ -1,0 +1,15 @@
+/**
+ * TODO description
+ */
+
+import java.security.SecureRandom;
+
+public class Random {
+
+	public static int createTwoDigitRandom() {
+		int r = new SecureRandom().nextInt() % 100;
+		if(r < 0)
+			return r + 100;
+		return r;
+	}
+}
