@@ -2,6 +2,13 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="jars/Cryptocalc/Cryptocalc.jar"/>
+	<classpathentry kind="lib" path="jars/EuclideanAlgorithm/EuclideanAlgorithm.jar"/>
+	<classpathentry kind="lib" path="jars/EulersPhiFunction/EulersPhiFunction.jar"/>
+	<classpathentry kind="lib" path="jars/ExtendedEuclideanAlgorithm/ExtendedEuclideanAlgorithm.jar"/>
+	<classpathentry kind="lib" path="jars/FastExponentiation/FastExponentiation.jar"/>
+	<classpathentry kind="lib" path="jars/RSA/RSA.jar"/>
+	<classpathentry kind="lib" path="jars/RSAKeyGeneration/RSAKeyGeneration.jar"/>
+	<classpathentry kind="lib" path="jars/RandomNumberGenerator/RandomNumberGenerator.jar"/>
+	<classpathentry kind="lib" path="jars/Recursive/Recursive.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

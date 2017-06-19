@@ -2,7 +2,7 @@
 	<featureModel>
 		<properties/>
 		<struct>
-			<and mandatory="true" name="Cryptocalc">
+			<and abstract="true" mandatory="true" name="Cryptocalc">
 				<feature name="FastExponentiation"/>
 				<feature name="EuclideanAlgorithm"/>
 				<and name="ExtendedEuclideanAlgorithm">
