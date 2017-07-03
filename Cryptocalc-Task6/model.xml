@@ -15,7 +15,7 @@
 						<feature mandatory="true" name="Recursive"/>
 					</alt>
 				</and>
-				<feature name="EulersPhiFunction"/>
+				<feature abstract="true" name="EulersPhiFunction"/>
 				<feature abstract="true" name="CharmichaelsFunction"/>
 				<feature name="RandomNumberGenerator"/>
 				<feature abstract="true" name="CalculateInExtensionField"/>
@@ -23,8 +23,8 @@
 					<feature abstract="true" name="FindPrimitiveRoots"/>
 				</and>
 				<or name="RSA">
-					<feature mandatory="true" name="RSAKeyGeneration"/>
-					<feature abstract="true" mandatory="true" name="RSAEncryption"/>
+					<feature abstract="true" mandatory="true" name="RSAKeyGeneration"/>
+					<feature mandatory="true" name="RSAEncryption"/>
 				</or>
 				<or abstract="true" name="ElGamal">
 					<feature abstract="true" mandatory="true" name="ElGamalKeyGeneration"/>
